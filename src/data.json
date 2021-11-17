@@ -1,264 +1,287 @@
 {
-    "data": [
-      {
-        "type": "Text",
-        "children": [
-          {
-            "type": "Themed texts",
-            "children": [
-              {
-                "type": "Add Heading 1",
-  
-                "cursor": "pointer",
-                "fontsize": "30px"
+  "data": [
+    {
+      "type": "Text",
+      "children": [
+        {
+          "type": "Themed texts",
+          "children": [
+            {
+              "type": "Add Heading 1",
+
+              "cursor": "pointer",
+              "fontsize": "30px"
+            },
+            {
+              "type": "Add Heading 2",
+
+              "cursor": "pointer",
+              "fontsize": "25px"
+            },
+            {
+              "type": "Add Heading 3",
+
+              "cursor": "pointer",
+              "fontsize": "20px",
+              "color": "green"
+            },
+            {
+              "type": "Add Heading 4",
+
+              "cursor": "pointer",
+              "fontsize": "15px",
+              "color": "grey"
+            },
+            {
+              "type": "Add Heading 5",
+
+              "cursor": "pointer",
+              "fontsize": "13px"
+            },
+            {
+              "type": "Add Heading 6",
+
+              "cursor": "pointer",
+              "fontsize": "10px"
+            }
+          ]
+        },
+
+        {
+          "type": "Titles",
+          "children": [
+            {
+              "type": "Big Title"
+            },
+            {
+              "font-style": "italic",
+              "type": "Caps Title"
+            },
+            {
+              "font-style": "italic",
+              "type": "Small Title"
+            },
+            {
+              "font-style": "italic",
+              "type": "Business Title"
+            },
+            {
+              "type": "Classic Title"
+            },
+            {
+              "type": "Huge Title"
+            },
+            {
+              "type": "Bold Title"
+            },
+            {
+              "type": "Elegant Title"
+            },
+            {
+              "type": "Pleasent Title"
+            },
+            {
+              "type": "Minimal Title"
+            },
+            {
+              "type": "Art Title"
+            }
+          ]
+        },
+        {
+          "type": "Paragraphs",
+          "children": [
+            {
+              "color": "light-blue",
+              "type": "Helvetica Light is an easy-to-read font, with tall and narrow letters, that works well on almost every site."
+            },
+            {
+              "color": "green",
+              "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
+            },
+            {
+              "color": "grey",
+              "type": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out"
+            },
+            {
+              "color": "green",
+              "type": "Poppins is a spirited and standout font that takes its inspiration from handwriting. It's sure to grab your reader's attention, especially in short paragraphs."
+            },
+            {
+              "color": "lightgreen",
+              "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
+            },
+            {
+              "color": "red",
+              "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
+            },
+            {
+              "color": "grey",
+              "type": "AveCormorant Garamond is a classic font with a modern twist. It's easy to read on screens of every shape and size, and perfect for long blocks of text."
+            },
+            {
+              "color": "grey",
+              "type": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "Image",
+      "children": [
+        {
+          "type": "Image Collections",
+          "children": [
+            {
+              "imageUrl": "https://picsum.photos/id/243/320/180",
+              "width" : "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
               
-              },
-              {
-                "type": "Add Heading 2",
-  
-                "cursor": "pointer",
-                "fontsize": "25px"
-               
-              },
-              {
-                "type": "Add Heading 3",
-  
-                "cursor": "pointer",
-                "fontsize": "20px",
-                "color":"green"
-             
-              },
-              {
-                "type": "Add Heading 4",
-  
-                "cursor": "pointer",
-                "fontsize": "15px",
-                "color":"grey"
-              },
-              {
-                "type": "Add Heading 5",
-  
-                "cursor": "pointer",
-                "fontsize": "13px"
-               
-              },
-              {
-                "type": "Add Heading 6",
-  
-                "cursor": "pointer",
-                "fontsize": "10px"
-               
-              }
-            ]
-          },
-  
-          {
-            "type": "Titles",
-            "children": [
-              {
-  
-                "type": "Big Title"
-              },
-              {
-                
-                "font-style": "italic",
-                "type": "Caps Title"
-              },
-              {
-                "font-style": "italic",
-                "type": "Small Title"
-              },
-              {
-                "font-style": "italic",
-                "type": "Business Title"
-              },
-              {
-                "type": "Classic Title"
-              },
-              {
-                "type": "Huge Title"
-              },
-              {
-                "type": "Bold Title"
-              },
-              {
-                "type": "Elegant Title"
-              },
-              {
-                "type": "Pleasent Title"
-              },
-              {
-                "type": "Minimal Title"
-              },
-              {
-                "type": "Art Title"
-              }
-            ]
-          },
-          {
-            "type": "Paragraphs",
-            "children": [
-              {
-                "color": "light-blue",
-                "type": "Helvetica Light is an easy-to-read font, with tall and narrow letters, that works well on almost every site."
-              },
-              {
-                "color": "green",
-                "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
-              },
-              {
-                "color": "grey",
-                "type": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out"
-              },
-              {
-                "color": "green",
-                "type": "Poppins is a spirited and standout font that takes its inspiration from handwriting. It's sure to grab your reader's attention, especially in short paragraphs."
-              },
-              {
-                "color": "lightgreen",
-                "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
-              },
-              {
-                "color": "red",
-                "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
-              },
-              {
-                "color": "grey",
-                "type": "AveCormorant Garamond is a classic font with a modern twist. It's easy to read on screens of every shape and size, and perfect for long blocks of text."
-              },
-              {
-                "color": "grey",
-                "type": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out."
-              }
-            ]
-          }
-        ]
-      },
-  
-      {
-        "type": "Image",
-        "children": [
-          { 
-  
-            "type": "Image Collections",
-            "children":[
-              { 
-           
-                "type":"image"
-                
-              },
-              {
-                "type":"image"
-              },
-              {
-                "type":"image"
-              }
-            ]
-          },
-          {
-            "type": "Social Images",
-            "children":[
-              {
-                "type":"social"
-              },
-              {
-                "type":"image"
-              },
-              {
-                "type":"image"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Button",
-        "children": [
-          {
-            "type": "Themed Buttons",
-            "children": [
-              {
-                "fontsize": "15px",
-                "fontweight":900,
-                "width": "110px",
-                "height": "35px",
-                "type": "Button",
-                "color": "black",
-             
-                "backgroundcolor": "lightblue"
-              },
-              {
-                "fontsize": "15px",
-  
-                "width": "110px",
-                "height": "35px",
-                "type": "Button",
-                "color": "white",
-                "backgroundcolor": "blue"
-              },
-              {
-                "fontsize": "15px",
-               
-                "width": "110px",
-                "height": "35px",
-                "type": "Button",
-                "color": "black",
-                "backgroundcolor": "lightgreen"
-              },
-              {
-                "fontsize": "15px",
-                "width": "110px",
-                "height": "35px",
-                "type": "Button",
-                "color": "black",
-                "backgroundcolor": "white"
-              }
-            ]
-          },
-          {
-            "type": "Icon Buttons",
-            "children": [
-              {
-                "fontsize": "15px",
-                "width": "110px",
-                "height": "35px",
-            
-                "color": "white",
-                "backgroundcolor": "brown",
-                "type": "View more"
-              },
-              {
-                "fontsize": "15px",
-                "width": "110px",
-                "height": "35px",
-            
-                "color": "white",
-                "backgroundcolor": "blue",
-                "type": "Shop"
-              },
-              {
-                "fontsize": "15px",
-                "width": "110px",
-                "height": "35px",
-            
-                "color": "white",
-                "backgroundcolor": "green",
-                "type": "Send"
-              },
-              {
-                "fontsize": "15px",
-                "width": "110px",
-                "height": "35px",
-            
-                "color": "black",
-                "backgroundcolor": "white",
-                "type": "Read more"
-              }
-            ]
-          }
-        ]
-      }
-      
-    ]
-  }
-  
+              "borderradius": "10px"
+            },
+            {
+              "imageUrl": "https://picsum.photos/200/300/?blur",
+              "width" : "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+              
+              "borderradius": "10px"
+            },
+            {
+              "imageUrl": "https://picsum.photos/seed/picsum/200/300",
+              "width" : "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+              
+              "borderradius": "10px"
+            }
+          ]
+        },
+        {
+          "type": "Social Images",
+          "children": [
+            {
+              "imageUrl": "https://picsum.photos/id/1016/367/267",
+              "width" : "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+              
+              "borderradius": "10px"
+            },
+            {
+              "imageUrl": "https://picsum.photos/id/1008/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
+              "borderradius": "10px"
+            },
+            {
+              "imageUrl": "https://picsum.photos/id/1001/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+              "borderradius": "10px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Button",
+      "children": [
+        {
+          "type": "Themed Buttons",
+          "children": [
+            {
+              "fontsize": "15px",
+              "fontweight": 900,
+              "width": "110px",
+              "height": "35px",
+              "type": "Button",
+              "color": "black",
+
+              "backgroundcolor": "lightblue"
+            },
+            {
+              "fontsize": "15px",
+
+              "width": "110px",
+              "height": "35px",
+              "type": "Button",
+              "color": "white",
+              "backgroundcolor": "blue"
+            },
+            {
+              "fontsize": "15px",
+
+              "width": "110px",
+              "height": "35px",
+              "type": "Button",
+              "color": "black",
+              "backgroundcolor": "lightgreen"
+            },
+            {
+              "fontsize": "15px",
+              "width": "110px",
+              "height": "35px",
+              "type": "Button",
+              "color": "black",
+              "backgroundcolor": "white"
+            }
+          ]
+        },
+        {
+          "type": "Icon Buttons",
+          "children": [
+            {
+              "fontsize": "15px",
+              "width": "110px",
+              "height": "35px",
+
+              "color": "white",
+              "backgroundcolor": "brown",
+              "type": "View more"
+            },
+            {
+              "fontsize": "15px",
+              "width": "110px",
+              "height": "35px",
+
+              "color": "white",
+              "backgroundcolor": "blue",
+              "type": "Shop"
+            },
+            {
+              "fontsize": "15px",
+              "width": "110px",
+              "height": "35px",
+
+              "color": "white",
+              "backgroundcolor": "green",
+              "type": "Send"
+            },
+            {
+              "fontsize": "15px",
+              "width": "110px",
+              "height": "35px",
+
+              "color": "black",
+              "backgroundcolor": "white",
+              "type": "Read more"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

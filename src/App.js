@@ -1,18 +1,19 @@
 
 
 import './App.css';
-import Content from "./Content";
+
+
 import Leftmenu from './Leftmenu';
 import Header from './Header';
+import Mainpanel from './Mainpanel';
 
 function App() {
   return (
     <div>
      <Header />
     <Leftmenu />
-    <div>
-    <Content />
-      </div>   
+    <Mainpanel />
+      
     </div>
     );
 }

@@ -21,26 +21,15 @@ function Panel(props) {
 
   const closePanel = () => {
     props.setBtn(false);
-
-
-
   };
- 
-  const dragStart = e=>{
-    const target = e.target;
-    e.dataTransfer.setData('card_id', target.id);
 
-    setTimeout(()=>{
-      target.style.display = "none";
-    }, 0 );
-  }
+  const drag = (eve) => {
+    eve.dataTransfer.setData("data", eve.target.id);
+  };
 
-  const dragOver = e=>{
+  const dragOver = (e) => {
     e.stopPropagation();
-  }
-
-
-
+  };
 
   const handleContent = (content) => {
     if (
@@ -178,12 +167,6 @@ function Panel(props) {
         </ul>
       ) : null}
 
-
-
-
-
-
-
       {isClick && tags === "Themed texts" ? (
         <ul key={tags}>
           {panelData
@@ -198,8 +181,9 @@ function Panel(props) {
               el.children.map((el) => (
                 <div className="card" id="card_id">
                   <p
-                     onDragStart={dragStart}
-                     onDragOver={dragOver}
+                 
+                    onDragStart={drag}
+                    onDragOver={dragOver}
                     style={{ color: `${el.color}`, fontSize: `${el.fontsize}` }}
                     className="hello"
                     draggable={true}
@@ -342,13 +326,18 @@ function Panel(props) {
             .map((el) =>
               el.children.map((el) => (
                 <img
-                  src={el.image}
-                  alt="hello"
-                  height="50px"
-                  width="50px"
+                src={el.imageUrl} alt="nothing"
                   draggable={true}
+                  style={{
+                    width: `${el.width}`,
+                    height: `${el.height}`,
+                    margin: `${el.margin}`,
+                    padding: `${el.padding}`,
+                    cursor: `${el.cursor}`,
+                    borderRadius: `${el.borderradius}`,
+                  }}
                 >
-                  {el.type}{" "}
+                  
                 </img>
               ))
             )}
@@ -364,7 +353,19 @@ function Panel(props) {
 
             .filter((el) => el.type === "Social Images")
             .map((el) =>
-              el.children.map((el) => <p draggable={true}>{el.type} </p>)
+              el.children.map((el) => <img 
+              src={el.imageUrl}  alt="nothing"
+              draggable={true}
+              style={{
+                width: `${el.width}`,
+                height: `${el.height}`,
+                margin: `${el.margin}`,
+                padding: `${el.padding}`,
+                cursor: `${el.cursor}`,
+                borderRadius: `${el.borderradius}`,
+              }}
+            > 
+              </img>)
             )}
         </ul>
       ) : null}
