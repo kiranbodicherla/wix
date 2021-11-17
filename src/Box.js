@@ -23,8 +23,8 @@ function Panel(props) {
     props.setBtn(false);
   };
 
-  const drag = (eve) => {
-    eve.dataTransfer.setData("data", eve.target.id);
+  const drag = (ev) => {
+    ev.dataTransfer.setData("data", ev.target.id);
   };
 
   const dragOver = (e) => {
