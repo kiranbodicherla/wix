@@ -23,8 +23,8 @@ function Panel(props) {
     props.setBtn(false);
   };
 
-  const drag = (ev) => {
-    ev.dataTransfer.setData("data", ev.target.id);
+  const drag = (eve) => {
+    eve.dataTransfer.setData("data", eve.target.id);
   };
 
   const dragOver = (e) => {
@@ -181,7 +181,6 @@ function Panel(props) {
               el.children.map((el) => (
                 <div className="card" id="card_id">
                   <p
-                 
                     onDragStart={drag}
                     onDragOver={dragOver}
                     style={{ color: `${el.color}`, fontSize: `${el.fontsize}` }}
@@ -326,7 +325,8 @@ function Panel(props) {
             .map((el) =>
               el.children.map((el) => (
                 <img
-                src={el.imageUrl} alt="nothing"
+                  src={el.imageUrl}
+                  alt="nothing"
                   draggable={true}
                   style={{
                     width: `${el.width}`,
@@ -336,9 +336,7 @@ function Panel(props) {
                     cursor: `${el.cursor}`,
                     borderRadius: `${el.borderradius}`,
                   }}
-                >
-                  
-                </img>
+                ></img>
               ))
             )}
         </ul>
@@ -353,19 +351,21 @@ function Panel(props) {
 
             .filter((el) => el.type === "Social Images")
             .map((el) =>
-              el.children.map((el) => <img 
-              src={el.imageUrl}  alt="nothing"
-              draggable={true}
-              style={{
-                width: `${el.width}`,
-                height: `${el.height}`,
-                margin: `${el.margin}`,
-                padding: `${el.padding}`,
-                cursor: `${el.cursor}`,
-                borderRadius: `${el.borderradius}`,
-              }}
-            > 
-              </img>)
+              el.children.map((el) => (
+                <img
+                  src={el.imageUrl}
+                  alt="nothing"
+                  draggable={true}
+                  style={{
+                    width: `${el.width}`,
+                    height: `${el.height}`,
+                    margin: `${el.margin}`,
+                    padding: `${el.padding}`,
+                    cursor: `${el.cursor}`,
+                    borderRadius: `${el.borderradius}`,
+                  }}
+                ></img>
+              ))
             )}
         </ul>
       ) : null}

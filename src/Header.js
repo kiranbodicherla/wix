@@ -1,10 +1,15 @@
 import React from 'react'
 import "./Header.css";
-function Header() {
+function Header(props) {
     return (
-        <div className="head">
+   <header>
+        <div className="head1">
             <h3>Email Editor</h3>
         </div>
+        <div className= "button">
+    <button onClick={props.downloadFile}>Publish</button>
+    </div>
+    </header>
     )
 }
 
