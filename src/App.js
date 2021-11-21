@@ -1,45 +1,30 @@
-
-
-import './App.css';
-
-import React,{useRef} from "react";
-import Leftmenu from './Leftmenu';
-import Header from './Header';
-
-
+import React, { useRef } from "react";
+import Header from "./Header";
+import Leftmenu from "./Leftmenu";
+import Maincomp from "./Maincomp";
 
 function App() {
-  const node = useRef(null);
- 
+  const nodeRef = useRef(null);
 
-  const downloadFile=()=>{
-
-    if(node.current === null){
-
-      return;
-    }
-
-    const obj = node.current.outerHTML
-    const blob = new Blob([obj], {type : 'application/html'});
-    let url = window.URL.createObjectURL(blob, {type: "application/html"});
-    let a = document.createElement('a');
+  const download = () => {
+    const obj = nodeRef.current.outerHTML;
+    const blob = new Blob([obj], { type: "application/html" });
+    let url = window.URL.createObjectURL(blob, { type: "application/html" });
+    let a = document.createElement("a");
     a.href = url;
-    a.download = 'file.html';
+    a.download = "publish.html";
     a.click();
-  }
-  
+  };
 
   return (
-    <div>
-     <Header downloadFile={downloadFile}  />
-    <div>
-    <Leftmenu />
-   
+    <div className="App">
+      <Header download={download} />
+      <div className="main-container">
+        <Leftmenu />
+        <Maincomp nodeRef={nodeRef} />
       </div>
-  
-      
     </div>
-    );
+  );
 }
 
 export default App;

@@ -1,26 +1,29 @@
 import React, { useState } from "react";
-
 import data from "./data.json";
-import "./Box.css";
 import { FaTimes } from "react-icons/fa";
-
-function Panel(props) {
+import "./Box.css";
+function SidePanel(props) {
   let panelData = data.data;
-
-  const [isClicked, setIsClicked] = useState(false);
+  const [isListItemClicked, setListItem] = useState(false);
   const [tag, setTag] = useState("");
-
-  const [isClick, setIsClick] = useState(false);
-  const [tags, setTags] = useState("");
-
-  const [isClickButton, setIsClickButton] = useState(false);
-  const [tagButton, setTagButton] = useState("");
-
-  const [isClickImg, setIsClickImg] = useState(false);
-  const [tagImg, setTagImg] = useState("");
+  const [isNestedListClicked, setNestedList] = useState(false);
+  const [nestListTag, setNestedListTag] = useState("");
 
   const closePanel = () => {
     props.setBtn(false);
+  };
+
+  const handleContent = (element) => {
+    if (
+      element.className === "Text" ||
+      element.className === "Button" ||
+      element.className === "Image"
+    ) {
+      setListItem(true);
+      setTag(element.className);
+    } else {
+      setListItem(false);
+    }
   };
 
   const drag = (eve) => {
@@ -31,345 +34,575 @@ function Panel(props) {
     e.stopPropagation();
   };
 
-  const handleContent = (content) => {
+  const handleNestedList = (element) => {
     if (
-      content.className === "Text" ||
-      content.className === "Image" ||
-      content.className === "Button" ||
-      content.className === "Box"
+      element.id === "Themed texts" ||
+      element.id === "Titles" ||
+      element.id === "Paragraphs" ||
+      element.id === "Themed Buttons" ||
+      element.id === "Text & icons Buttons" ||
+      element.id === "icon Buttons" ||
+      element.id === "My Uploads" ||
+      element.id === "My Collections" ||
+      element.id === "Social images"
     ) {
-      setIsClicked(true);
-
-      setTag(content.className);
+      setNestedList(true);
+      setNestedListTag(element.id);
     } else {
-      setIsClicked(false);
-    }
-  };
-  const handleCon = (tagel) => {
-    if (
-      tagel.className === "Themed texts" ||
-      tagel.className === "Titles" ||
-      tagel.className === "Paragraphs"
-    ) {
-      setIsClick(true);
-
-      setTags(tagel.className);
-    } else {
-      setIsClick(false);
-    }
-  };
-  const handleButton = (tagBut) => {
-    if (
-      tagBut.className === "Themed Buttons" ||
-      tagBut.className === "Icon Buttons" ||
-      tagBut.className === "Image Buttons"
-    ) {
-      setIsClickButton(true);
-
-      setTagButton(tagBut.className);
-    } else {
-      setIsClickButton(false);
-    }
-  };
-
-  const handleConimg = (tagImg) => {
-    if (
-      tagImg.className === "Image Collections" ||
-      tagImg.className === "Social Images"
-    ) {
-      setIsClickImg(true);
-
-      setTagImg(tagImg.className);
-    } else {
-      setIsClickImg(false);
+      setNestedList(false);
     }
   };
 
   return (
     <div className="panel-box">
-      <div className="panel-header">
-        <p>Add to site</p>
-        <FaTimes className="close" onClick={() => closePanel()} />
-      </div>
+      <span className="panel-header">
+        <p>Add to Site</p>
+        <FaTimes id="close-icon" onClick={() => closePanel()} />
+      </span>
 
-      <ul>
-        {panelData ? (
-          panelData.map((ele) => (
-            <li
-              key={ele.type}
-              className={ele.type}
-              onClick={(event) => handleContent(event.target)}
-            >
-              {ele.type}
-            </li>
-          ))
-        ) : (
-          <p>Error</p>
-        )}
-      </ul>
-
-      {isClicked && tag === "Text" ? (
-        <ul key={tag}>
-          {panelData
-
-            .filter((el) => el.type === "Text")
-
-            .map((ele) => ele.children)
-
-            .flat()
-
-            .map((childobj) => (
+      <div className="panel-data-box">
+        <ul id="parent-list">
+          {panelData ? (
+            panelData.map((ele) => (
               <li
-                onClick={(event) => handleCon(event.target)}
-                className={childobj.type}
+                key={ele.type}
+                className={ele.type}
+                onClick={(event) => handleContent(event.target)}
               >
-                {childobj.type}
+                {ele.type}
               </li>
-            ))}{" "}
+            ))
+          ) : (
+            <p>No Data Found</p>
+          )}
         </ul>
-      ) : isClicked && tag === "Image" ? (
-        <ul key={tag}>
-          {panelData
 
-            .filter((el) => el.type === "Image")
-
-            .map((ele) => ele.children)
-
-            .flat()
-
-            .map((childobj) => (
-              <li
-                onClick={(event) => handleConimg(event.target)}
-                className={childobj.type}
-              >
-                {childobj.type}
-              </li>
-            ))}
-        </ul>
-      ) : isClicked && tag === "Button" ? (
-        <ul key={tag}>
-          {panelData
-
-            .filter((el) => el.type === "Button")
-
-            .map((ele) => ele.children)
-
-            .flat()
-
-            .map((childobj) => (
-              <li
-                onClick={(event) => handleButton(event.target)}
-                className={childobj.type}
-              >
-                {childobj.type}
-              </li>
-            ))}
-        </ul>
-      ) : null}
-
-      {isClick && tags === "Themed texts" ? (
-        <ul key={tags}>
-          {panelData
-
-            .filter((el) => el.type === "Text")
-
-            .map((ele) => ele.children)
-            .flat()
-
-            .filter((el) => el.type === "Themed texts")
-            .map((el) =>
-              el.children.map((el) => (
-                <div className="card" id="card_id">
-                  <p
-                    onDragStart={drag}
-                    onDragOver={dragOver}
-                    style={{ color: `${el.color}`, fontSize: `${el.fontsize}` }}
-                    className="hello"
-                    draggable={true}
+        <div className="nested-list-data-box">
+          {isListItemClicked && tag === "Text" ? (
+            <ul key={tag} className="nested-data">
+              {panelData
+                .filter((el) => el.type === "Text")
+                .map((ele) => ele.children)
+                .flat()
+                .map((childObj) => (
+                  <li
+                    key={childObj.ID}
+                    className="text-nested-list"
+                    id={childObj.name}
+                    onClick={(event) => handleNestedList(event.target)}
                   >
-                    {el.type}{" "}
-                  </p>
-                </div>
-              ))
-            )}
-        </ul>
-      ) : isClick && tags === "Titles" ? (
-        <ul key={tags}>
-          {panelData
+                    {childObj.name}
+                  </li>
+                ))}
+            </ul>
+          ) : isListItemClicked && tag === "Button" ? (
+            <ul className="nested-data">
+              {panelData
+                .filter((el) => el.type === "Button")
+                .map((ele) => ele.children)
+                .flat()
+                .map((childObj) => (
+                  <li
+                    key={childObj.name}
+                    id={childObj.name}
+                    onClick={(event) => handleNestedList(event.target)}
+                    className="button-nested-list"
+                  >
+                    {childObj.name}
+                  </li>
+                ))}
+            </ul>
+          ) : isListItemClicked && tag === "Image" ? (
+            <ul key={tag} className="nested-data">
+              {panelData
+                .filter((el) => el.type === "Image")
+                .map((ele) => ele.children)
+                .flat()
+                .map((childObj) => (
+                  <li
+                    key={childObj.ID}
+                    className="image-nested-list"
+                    id={childObj.name}
+                    onClick={(event) => handleNestedList(event.target)}
+                  >
+                    {childObj.name}
+                  </li>
+                ))}
+            </ul>
+          ) : null}
+        </div>
 
-            .filter((el) => el.type === "Text")
+        <div className="content-holder">
+          {isNestedListClicked && nestListTag === "Themed texts"
+            ? panelData
+                .filter((el) => el.type === "Text")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "Themed texts")
+                .map((ele) =>
+                  ele.stylesArr.map((style) => (
+                    <div key={style.ID}>
+                      <h1
+                        draggable={style.draggable}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        id={style.h1}
+                        style={{
+                          fontSize: `${style.fontsize}`,
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          color: `${style.color}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h1}
+                      </h1>
 
-            .map((ele) => ele.children)
-            .flat()
+                      <h2
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        draggable={style.draggable}
+                        id={style.h2}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                          color: `${style.color}`,
+                        }}
+                      >
+                        {style.h2}
+                      </h2>
 
-            .filter((el) => el.type === "Titles")
-            .map((el) =>
-              el.children.map((el) => (
-                <h4
-                  style={{ fontStyle: "italic" }}
-                  className="titl"
-                  draggable={true}
-                >
-                  {el.type}{" "}
-                </h4>
-              ))
-            )}
-        </ul>
-      ) : isClick && tags === "Paragraphs" ? (
-        <ul key={tags}>
-          {panelData
+                      <h3
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        draggable={style.draggable}
+                        id={style.h3}
+                        style={{
+                          width: `${style.width}`,
+                          color: `${style.color}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h3}
+                      </h3>
 
-            .filter((el) => el.type === "Text")
+                      <h4
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        draggable={style.draggable}
+                        id={style.h4}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          color: `${style.color}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h4}
+                      </h4>
 
-            .map((ele) => ele.children)
-            .flat()
+                      <h5
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        draggable={style.draggable}
+                        id={style.h5}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          color: `${style.color}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h5}
+                      </h5>
 
-            .filter((el) => el.type === "Paragraphs")
-            .map((el) =>
-              el.children.map((el) => (
-                <p style={{ color: `${el.color}` }} draggable={true}>
-                  {el.type}{" "}
-                </p>
-              ))
-            )}
-        </ul>
-      ) : null}
+                      <h6
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        draggable={style.draggable}
+                        id={style.h6}
+                        style={{
+                          width: `${style.width}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          color: `${style.color}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h6}
+                      </h6>
+                      <p
+                        draggable={style.draggable}
+                        id={style.id}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        style={{
+                          width: `${style.width}`,
+                          padding: `${style.padding}`,
+                          fontStyle: `${style.fontstyle}`,
+                          cursor: `${style.cursor}`,
+                          color: `${style.color}`,
+                        }}
+                      >
+                        {style.para}
+                      </p>
+                    </div>
+                  ))
+                )
+            : isNestedListClicked && nestListTag === "Titles"
+            ? panelData
+                .filter((el) => el.type === "Text")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "Titles")
+                .map((ele) =>
+                  ele.stylesArr.map((style) => (
+                    <div key={style.ID}>
+                      <h1
+                        draggable={style.draggable}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        id={style.ID}
+                        key={style.h1}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h1}
+                      </h1>
 
-      {isClickButton && tagButton === "Themed Buttons" ? (
-        <ul key={tagButton}>
-          {panelData
-            .filter((el) => el.type === "Button")
-            .map((ele) => ele.children)
-            .flat()
-            .filter((el) => el.type === "Themed Buttons")
-            .map((el) =>
-              el.children.map((el) => (
-                <button
-                  style={{
-                    width: `${el.width}`,
-                    marginLeft: 70,
-                    fontStyle: "italic",
-                    fontWeight: 700,
-                    backgroundColor: `${el.backgroundcolor}`,
-                    fontSize: `${el.fontsize}`,
-                    color: `${el.color}`,
-                    height: `${el.height}`,
-                  }}
-                  className="butstyle"
-                  draggable={true}
-                >
-                  {el.type}{" "}
-                </button>
-              ))
-            )}
-        </ul>
-      ) : isClickButton && tagButton === "Icon Buttons" ? (
-        <ul key={tagButton}>
-          {panelData
+                      <h2
+                        draggable={style.draggable}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        id={style.ID2}
+                        key={style.h2}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          fontFamily: `${style.fontfamily}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h2}
+                      </h2>
 
-            .filter((el) => el.type === "Button")
+                      <h3
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.h3}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h3}
+                      </h3>
 
-            .map((ele) => ele.children)
-            .flat()
+                      <h4
+                        draggable={style.draggable}
+                        id={style.ID2}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.h4}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h4}
+                      </h4>
 
-            .filter((el) => el.type === "Icon Buttons")
-            .map((el) =>
-              el.children.map((el) => (
-                <button
-                  style={{
-                    width: `${el.width}`,
-                    marginLeft: 70,
-                    fontStyle: "italic",
-                    fontWeight: 700,
-                    backgroundColor: `${el.backgroundcolor}`,
-                    fontSize: `${el.fontsize}`,
-                    color: `${el.color}`,
-                    height: `${el.height}`,
-                  }}
-                  className="butstyle"
-                  draggable={true}
-                >
-                  {el.type}{" "}
-                </button>
-              ))
-            )}
-        </ul>
-      ) : isClickButton && tagButton === "Image Buttons" ? (
-        <ul key={tagButton}>
-          {panelData
+                      <h5
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.h5}
+                        style={{
+                          width: `${style.width}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          fontFamily: `${style.fontfamily}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h5}
+                      </h5>
 
-            .filter((el) => el.type === "Button")
-
-            .map((ele) => ele.children)
-            .flat()
-
-            .filter((el) => el.type === "Image Buttons")
-            .map((el) =>
-              el.children.map((el) => (
-                <h3 className="butstyle" draggable={true}>
-                  {el.type}{" "}
-                </h3>
-              ))
-            )}
-        </ul>
-      ) : isClickImg && tagImg === "Image Collections" ? (
-        <ul key={tagImg}>
-          {panelData
-
-            .filter((el) => el.type === "Image")
-
-            .map((ele) => ele.children)
-            .flat()
-
-            .filter((el) => el.type === "Image Collections")
-            .map((el) =>
-              el.children.map((el) => (
-                <img
-                  src={el.imageUrl}
-                  alt="nothing"
-                  draggable={true}
-                  style={{
-                    width: `${el.width}`,
-                    height: `${el.height}`,
-                    margin: `${el.margin}`,
-                    padding: `${el.padding}`,
-                    cursor: `${el.cursor}`,
-                    borderRadius: `${el.borderradius}`,
-                  }}
-                ></img>
-              ))
-            )}
-        </ul>
-      ) : isClickImg && tagImg === "Social Images" ? (
-        <ul key={tagImg}>
-          {panelData
-
-            .filter((el) => el.type === "Image")
-
-            .map((ele) => ele.children)
-            .flat()
-
-            .filter((el) => el.type === "Social Images")
-            .map((el) =>
-              el.children.map((el) => (
-                <img
-                  src={el.imageUrl}
-                  alt="nothing"
-                  draggable={true}
-                  style={{
-                    width: `${el.width}`,
-                    height: `${el.height}`,
-                    margin: `${el.margin}`,
-                    padding: `${el.padding}`,
-                    cursor: `${el.cursor}`,
-                    borderRadius: `${el.borderradius}`,
-                  }}
-                ></img>
-              ))
-            )}
-        </ul>
-      ) : null}
+                      <h6
+                        draggable={style.draggable}
+                        id={style.ID2}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.h6}
+                        style={{
+                          width: `${style.width}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          fontFamily: `${style.fontfamily}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.h6}
+                      </h6>
+                    </div>
+                  ))
+                )
+            : isNestedListClicked && nestListTag === "Paragraphs"
+            ? panelData
+                .filter((el) => el.type === "Text")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "Paragraphs")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <p
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.ID}
+                        style={{
+                          width: `${style.width}`,
+                          color: `${style.color}`,
+                          fontStyle: `${style.fontstyle}`,
+                          fontWeight: `${style.fontweight}`,
+                          padding: `${style.padding}`,
+                          fontFamily: `${style.fontfamily}`,
+                          cursor: `${style.cursor}`,
+                        }}
+                      >
+                        {style.para}
+                      </p>
+                    ))}
+                  </div>
+                ))
+            : isNestedListClicked && nestListTag === "Themed Buttons"
+            ? panelData
+                .filter((el) => el.type === "Button")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "Themed Buttons")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <button
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.ID}
+                        style={{
+                          backgroundColor: `${style.bgcolor}`,
+                          color: `${style.color}`,
+                          cursor: `${style.cursor}`,
+                          padding: `${style.padding}`,
+                          fontSize: `${style.fontsize}`,
+                          margin: `${style.margin}`,
+                          border: `${style.border}`,
+                          letterSpacing: `${style.lettersace}`,
+                          borderRadius: `${style.borderradius}`,
+                          marginTop: 20,
+                          marginLeft: 60,
+                        }}
+                      >
+                        {style.btnText}
+                      </button>
+                    ))}
+                  </div>
+                ))
+            : isNestedListClicked && nestListTag === "Text & icons Buttons"
+            ? panelData
+                .filter((el) => el.type === "Button")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "Text & icons Buttons")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <button
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.ID}
+                        style={{
+                          backgroundColor: `${style.bgcolor}`,
+                          color: `${style.color}`,
+                          cursor: `${style.cursor}`,
+                          padding: `${style.padding}`,
+                          fontSize: `${style.fontsize}`,
+                          margin: `${style.margin}`,
+                          border: `${style.border}`,
+                          borderRadius: `${style.borderradius}`,
+                          marginLeft: 30,
+                          marginTop: 20,
+                        }}
+                      >
+                        {style.btnText}
+                        <i
+                          style={{
+                            padding: `${style.iconpadding}`,
+                            fontSize: `${style.iconsize}`,
+                          }}
+                          className={style.classname}
+                        ></i>
+                      </button>
+                    ))}
+                  </div>
+                ))
+            : isNestedListClicked && nestListTag === "icon Buttons"
+            ? panelData
+                .filter((el) => el.type === "Button")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "icon Buttons")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <i
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        key={style.ID}
+                        style={{
+                          fontSize: `${style.fontsize}`,
+                          margin: `${style.margin}`,
+                          cursor: `${style.cursor}`,
+                          color: `${style.color}`,
+                          padding: `${style.padding}`,
+                          backgroundColor: `${style.bgcolor}`,
+                          borderRadius: `${style.borderradius}`,
+                        }}
+                        className={style.classname}
+                      ></i>
+                    ))}
+                  </div>
+                ))
+            : isNestedListClicked && nestListTag === "My Uploads"
+            ? panelData
+                .filter((el) => el.type === "Image")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "My Uploads")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <img
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        src={style.imageUrl}
+                        alt="description"
+                        key={style.ID}
+                        style={{
+                          width: `${style.width}`,
+                          height: `${style.height}`,
+                          margin: `${style.margin}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                          borderRadius: `${style.borderradius}`,
+                        }}
+                        className={style.classname}
+                      ></img>
+                    ))}
+                  </div>
+                ))
+            : isNestedListClicked && nestListTag === "My Collections"
+            ? panelData
+                .filter((el) => el.type === "Image")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "My Collections")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <img
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        src={style.imageUrl}
+                        alt="description"
+                        key={style.ID}
+                        style={{
+                          width: `${style.width}`,
+                          height: `${style.height}`,
+                          margin: `${style.margin}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                          borderRadius: `${style.borderradius}`,
+                        }}
+                        className={style.classname}
+                      ></img>
+                    ))}
+                  </div>
+                ))
+            : isNestedListClicked && nestListTag === "Social images"
+            ? panelData
+                .filter((el) => el.type === "Image")
+                .map((ele) => ele.children)
+                .flat()
+                .filter((ele) => ele.name === "Social images")
+                .map((ele) => (
+                  <div key={ele.name}>
+                    {ele.stylesArr.map((style) => (
+                      <img
+                        draggable={style.draggable}
+                        id={style.ID}
+                        onDragStart={drag}
+                        onDragOver={dragOver}
+                        src={style.imageUrl}
+                        alt="description"
+                        key={style.ID}
+                        style={{
+                          width: `${style.width}`,
+                          height: `${style.height}`,
+                          margin: `${style.margin}`,
+                          padding: `${style.padding}`,
+                          cursor: `${style.cursor}`,
+                          borderRadius: `${style.borderradius}`,
+                        }}
+                        className={style.classname}
+                      ></img>
+                    ))}
+                  </div>
+                ))
+            : null}
+        </div>
+      </div>
     </div>
   );
 }
-export default Panel;
+
+export default SidePanel;

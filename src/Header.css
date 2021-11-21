@@ -1,59 +1,42 @@
 
-
-
-
-header{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-  
-    
-    box-shadow: 2px 2px 2px rgba(83, 82, 82, 0.334);
-    border-bottom: 2px solid rgba(128, 128, 128, 0.24);
-    background-color: rgb(148, 184, 185);
-     padding-top: 16px;
-
-
+.button {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-  header div{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .button{
-    width: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  
-  .button button{
-  
-    padding: 10px 20px;
-    margin: 2px;
-    font-weight: 800;
-    border: none;
-    border-radius: 30px;
-   background-color:transparent;
-     height: 40px;
-    border: 2px solid rgb(12, 12, 29);
-  
-    cursor: pointer;
-  }
-  
-  .button button:hover{
-  
-    color:black;
-   background-color: #3dadfd;
-    
-    
-  }
+
+.button button {
+  padding: 10px 20px;
+  margin: 2px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(101, 101, 216);
+  color: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+header {
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.234);
+  border-bottom: 1px solid rgba(168, 166, 166, 0.37);
+  background-color: rgb(148, 184, 185);
+}
+header div {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

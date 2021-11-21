@@ -2,180 +2,333 @@
   "data": [
     {
       "type": "Text",
+      "ID": "1",
       "children": [
         {
-          "type": "Themed texts",
-          "children": [
+          "name": "Themed texts",
+          "stylesArr": [
             {
-              "type": "Add Heading 1",
-
+              "ID": "style-1",
+              "width": "fit-content",
+              "h1": "Add Heading 1",
+              "draggable": true,
+              "fontsize": "30px",
               "cursor": "pointer",
-              "fontsize": "30px"
+              "padding": "0px 10px 0px 10px",
+              "color": "green",
+              "fontstyle": "italic"
             },
             {
-              "type": "Add Heading 2",
-
-              "cursor": "pointer",
-              "fontsize": "25px"
+              "ID": "style-2",
+              "width": "fit-content",
+              "h2": "Add Heading 2",
+              "fontsize": "25px",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "color": "grey",
+              "fontstyle": "italic",
+              "cursor": "pointer"
             },
             {
-              "type": "Add Heading 3",
-
-              "cursor": "pointer",
+              "ID": "style-3",
+              "width": "fit-content",
+              "h3": "Add Heading 3",
               "fontsize": "20px",
-              "color": "green"
+              "draggable": true,
+              "id": "paragragh-2",
+              "padding": "0px 10px 0px 10px",
+              "fontstyle": "italic",
+              "color": "light-grey",
+              "cursor": "pointer"
             },
             {
-              "type": "Add Heading 4",
-
-              "cursor": "pointer",
+              "ID": "style-4",
+              "width": "fit-content",
+              "h4": "Add Heading 4",
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "id": "paragragh-2",
+              "color": "blue",
               "fontsize": "15px",
-              "color": "grey"
+              "cursor": "pointer"
             },
             {
-              "type": "Add Heading 5",
-
-              "cursor": "pointer",
-              "fontsize": "13px"
+              "ID": "style-5",
+              "width": "fit-content",
+              "h5": "Add Heading 5",
+              "draggable": true,
+              "id": "paragragh-2",
+              "fontstyle": "italic",
+              "color": "Red",
+              "fontsize": "13px",
+              "padding": "0px 10px 0px 10px",
+              "cursor": "pointer"
             },
             {
-              "type": "Add Heading 6",
-
-              "cursor": "pointer",
-              "fontsize": "10px"
+              "ID": "style-6",
+              "width": "fit-content",
+              "h6": "Add Heading 6",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "id": "paragragh-2",
+              "fontstyle": "italic",
+              "color": "light-green",
+              "fontsize": "10px",
+              "cursor": "pointer"
             }
-          ]
+          ],
+          "ID": "1"
         },
 
         {
-          "type": "Titles",
-          "children": [
+          "name": "Paragraphs",
+          "stylesArr": [
             {
-              "type": "Big Title"
-            },
-            {
-              "font-style": "italic",
-              "type": "Caps Title"
-            },
-            {
-              "font-style": "italic",
-              "type": "Small Title"
-            },
-            {
-              "font-style": "italic",
-              "type": "Business Title"
-            },
-            {
-              "type": "Classic Title"
-            },
-            {
-              "type": "Huge Title"
-            },
-            {
-              "type": "Bold Title"
-            },
-            {
-              "type": "Elegant Title"
-            },
-            {
-              "type": "Pleasent Title"
-            },
-            {
-              "type": "Minimal Title"
-            },
-            {
-              "type": "Art Title"
-            }
-          ]
-        },
-        {
-          "type": "Paragraphs",
-          "children": [
-            {
+              "ID": "style-7",
+              "width": "fit-content",
+
+              "fontweight": 600,
+              "padding": "0px 10px 0px 10px",
+              "draggable": true,
+              "fontfamily": "Roboto",
+              "cursor": "pointer",
+              "fontstyle": "strong",
               "color": "light-blue",
-              "type": "Helvetica Light is an easy-to-read font, with tall and narrow letters, that works well on almost every site."
+              "para": "Helvetica Light is an easy-to-read font, with tall and narrow letters, that works well on almost every site."
             },
             {
+              "ID": "style-8",
+              "width": "fit-content",
+
+              "fontweight": 300,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "San serif",
+              "draggable": true,
+              "cursor": "pointer",
+              "fontstyle": "bold",
+              "color": "blue",
+              "para": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
+            },
+            {
+              "ID": "style-9",
+              "width": "fit-content",
               "color": "green",
-              "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
+              "para": "Poppins is a spirited and standout font that takes its inspiration from handwriting. It's sure to grab your reader's attention, especially in short paragraphs.",
+
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "poppins",
+              "cursor": "pointer",
+              "fontweight": 400
             },
             {
-              "color": "grey",
-              "type": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out"
-            },
-            {
-              "color": "green",
-              "type": "Poppins is a spirited and standout font that takes its inspiration from handwriting. It's sure to grab your reader's attention, especially in short paragraphs."
-            },
-            {
-              "color": "lightgreen",
-              "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
-            },
-            {
+              "ID": "style-9",
+              "width": "fit-content",
               "color": "red",
-              "type": "Avenir Light is a clean and stylish font favored by designers. It's easy on the eyes and a great go-to font for titles, paragraphs & more."
+              "para": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out",
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "poppins",
+              "cursor": "pointer",
+              "fontweight": 400
             },
             {
-              "color": "grey",
-              "type": "AveCormorant Garamond is a classic font with a modern twist. It's easy to read on screens of every shape and size, and perfect for long blocks of text."
+              "ID": "style-9",
+              "width": "fit-content",
+              "color": "red",
+              "para": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out",
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "poppins",
+              "cursor": "pointer",
+              "fontweight": 400
             },
             {
-              "color": "grey",
-              "type": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out."
+              "ID": "style-9",
+              "width": "fit-content",
+              "color": "green",
+              "para": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out",
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "poppins",
+              "cursor": "pointer",
+              "fontweight": 400
+            },
+            {
+              "ID": "style-9",
+              "width": "fit-content",
+              "color": "red",
+              "para": "Helvetica Light is an easy-to-read font, with tall and narrow letters, that works well on almost every site.",
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "poppins",
+              "cursor": "pointer",
+              "fontweight": 400
+            },
+            {
+              "ID": "style-9",
+              "width": "fit-content",
+              "color": "black",
+              "para": "AveCormorant Garamond is a classic font with a modern twist. It's easy to read on screens of every shape and size, and perfect for long blocks of text.",
+              "fontstyle": "italic",
+              "draggable": true,
+              "padding": "0px 10px 0px 10px",
+              "fontfamily": "poppins",
+              "cursor": "pointer",
+              "fontweight": 400
             }
-          ]
+          ],
+          "ID": "Tc3"
         }
       ]
     },
-
     {
-      "type": "Image",
+      "type": "Button",
+      "ID": "2",
       "children": [
         {
-          "type": "Image Collections",
-          "children": [
+          "name": "Themed Buttons",
+          "stylesArr": [
             {
-              "imageUrl": "https://picsum.photos/id/243/320/180",
-              "width" : "300px",
-              "height": "170px",
-              "padding": "3px",
+              "ID": "style-10",
               "cursor": "pointer",
-              
-              "borderradius": "10px"
+              "btnText": "Button",
+              "draggable": true,
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "#800080",
+              "color": "white",
+              "border": "none"
+            },
+
+            {
+              "ID": "style-11",
+              "draggable": true,
+              "cursor": "pointer",
+              "btnText": "Button",
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "#0000FF",
+              "color": "white",
+              "border": "1px solid white"
             },
             {
-              "imageUrl": "https://picsum.photos/200/300/?blur",
-              "width" : "300px",
-              "height": "170px",
-              "padding": "3px",
+              "ID": "style-12",
+              "draggable": true,
               "cursor": "pointer",
-              
-              "borderradius": "10px"
+              "btnText": "Button",
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "#808080",
+              "color": "white",
+              "border": "1px solid #000"
             },
             {
-              "imageUrl": "https://picsum.photos/seed/picsum/200/300",
-              "width" : "300px",
-              "height": "170px",
-              "padding": "3px",
+              "ID": "style-13",
+              "draggable": true,
               "cursor": "pointer",
-              
-              "borderradius": "10px"
+              "btnText": "Button",
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "light-grey",
+              "color": "black",
+              "border": "1px solid #3E065F",
+              "borderradius": "25px"
             }
-          ]
+          ],
+          "ID": "Bc1"
         },
         {
-          "type": "Social Images",
-          "children": [
+          "name": "Text & icons Buttons",
+          "stylesArr": [
             {
-              "imageUrl": "https://picsum.photos/id/1016/367/267",
-              "width" : "300px",
-              "height": "170px",
-              "padding": "3px",
+              "ID": "style-14",
               "cursor": "pointer",
-              
-              "borderradius": "10px"
+              "btnText": "VIEW-MORE",
+              "draggable": true,
+              "padding": "15px 30px",
+              "classname": "far fa-paper-plane",
+              "iconpadding": "5px",
+              "iconsize": "20px",
+              "fontsize": "medium",
+              "margin": "4px",
+              "bgcolor": "#282422",
+              "color": "white",
+              "border": "1px solid blue"
+            },
+
+            {
+              "ID": "style-15",
+              "draggable": true,
+              "cursor": "pointer",
+              "btnText": "SHOP",
+              "classname": "fas fa-download",
+              "iconpadding": "7px",
+              "iconsize": "20px",
+              "letterspace": "1px",
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "#0F6755",
+              "color": "white",
+              "border": "1px solid white",
+              "borderradius": "5px"
             },
             {
+              "ID": "style-16",
+              "draggable": true,
+              "cursor": "pointer",
+              "btnText": "READ MORE",
+              "classname": "fas fa-pen",
+              "iconpadding": "7px",
+              "iconsize": "15px",
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "#C5D9D5",
+              "color": "256155",
+              "border": "none"
+            },
+            {
+              "ID": "style-17",
+              "draggable": true,
+              "cursor": "pointer",
+              "btnText": "SEND",
+              "classname": "fas fa-shopping-cart",
+              "iconpadding": "7px",
+              "iconsize": "20px",
+              "padding": "15px 30px",
+              "fontsize": "medium",
+              "margin": "5px",
+              "bgcolor": "#8328DE",
+              "color": "#E0D9E7",
+              "border": "1px solid #3E065F",
+              "borderradius": "10px"
+            }
+          ],
+          "ID": "Bc2"
+        }
+      ]
+    },
+    {
+      "type": "Image",
+      "ID": "3",
+      "children": [
+        {
+          "name": "My Uploads",
+          "stylesArr": [
+            {
+              "ID": "style-41",
               "imageUrl": "https://picsum.photos/id/1008/367/267",
               "width": "300px",
               "height": "170px",
@@ -185,101 +338,120 @@
               "borderradius": "10px"
             },
             {
+              "ID": "style-42",
               "imageUrl": "https://picsum.photos/id/1001/367/267",
               "width": "300px",
               "height": "170px",
               "padding": "3px",
               "cursor": "pointer",
+
+              "borderradius": "10px"
+            },
+            {
+              "ID": "style-43",
+              "imageUrl": "https://picsum.photos/id/1008/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
+              "borderradius": "10px"
+            },
+            {
+              "ID": "style-44",
+              "imageUrl": "https://picsum.photos/id/1010/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
+              "borderradius": "10px"
+            },
+            {
+              "ID": "style-45",
+              "imageUrl": "https://picsum.photos/id/1015/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
               "borderradius": "10px"
             }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Button",
-      "children": [
-        {
-          "type": "Themed Buttons",
-          "children": [
-            {
-              "fontsize": "15px",
-              "fontweight": 900,
-              "width": "110px",
-              "height": "35px",
-              "type": "Button",
-              "color": "black",
+          ],
 
-              "backgroundcolor": "lightblue"
-            },
-            {
-              "fontsize": "15px",
-
-              "width": "110px",
-              "height": "35px",
-              "type": "Button",
-              "color": "white",
-              "backgroundcolor": "blue"
-            },
-            {
-              "fontsize": "15px",
-
-              "width": "110px",
-              "height": "35px",
-              "type": "Button",
-              "color": "black",
-              "backgroundcolor": "lightgreen"
-            },
-            {
-              "fontsize": "15px",
-              "width": "110px",
-              "height": "35px",
-              "type": "Button",
-              "color": "black",
-              "backgroundcolor": "white"
-            }
-          ]
+          "ID": "Ic1"
         },
         {
-          "type": "Icon Buttons",
-          "children": [
+          "name": "My Collections",
+          "stylesArr": [
             {
-              "fontsize": "15px",
-              "width": "110px",
-              "height": "35px",
-
-              "color": "white",
-              "backgroundcolor": "brown",
-              "type": "View more"
+              "ID": "style-46",
+              "imageUrl": "https://picsum.photos/id/243/320/180",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+              "borderradius": "10px"
             },
             {
-              "fontsize": "15px",
-              "width": "110px",
-              "height": "35px",
+              "ID": "style-47",
+              "imageUrl": "https://picsum.photos/200/300/?blur",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
 
-              "color": "white",
-              "backgroundcolor": "blue",
-              "type": "Shop"
+              "borderradius": "10px"
             },
             {
-              "fontsize": "15px",
-              "width": "110px",
-              "height": "35px",
+              "ID": "style-48",
+              "imageUrl": "https://picsum.photos/seed/picsum/200/300",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
 
-              "color": "white",
-              "backgroundcolor": "green",
-              "type": "Send"
-            },
-            {
-              "fontsize": "15px",
-              "width": "110px",
-              "height": "35px",
-
-              "color": "black",
-              "backgroundcolor": "white",
-              "type": "Read more"
+              "borderradius": "10px"
             }
-          ]
+          ],
+
+          "ID": "Ic2"
+        },
+        {
+          "name": "Social images",
+          "stylesArr": [
+            {
+              "ID": "style-49",
+              "imageUrl": "https://picsum.photos/id/1026/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
+              "borderradius": "10px"
+            },
+            {
+              "ID": "style-50",
+              "imageUrl": "https://picsum.photos/id/1031/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
+              "borderradius": "10px"
+            },
+            {
+              "ID": "style-51",
+              "imageUrl": "https://picsum.photos/id/1043/367/267",
+              "width": "300px",
+              "height": "170px",
+              "padding": "3px",
+              "cursor": "pointer",
+
+              "borderradius": "10px"
+            }
+          ],
+          "ID": "Ic3"
         }
       ]
     }
