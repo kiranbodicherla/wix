@@ -4,10 +4,10 @@ import { FaTimes } from "react-icons/fa";
 import "./Box.css";
 function SidePanel(props) {
   let panelData = data.data;
-  const [isListItemClicked, setListItem] = useState(false);
+  const [isClicked, setisClicked] = useState(false);
   const [tag, setTag] = useState("");
   const [isNestedListClicked, setNestedList] = useState(false);
-  const [nestListTag, setNestedListTag] = useState("");
+  const [nestTag, setnestTag] = useState("");
 
   const closePanel = () => {
     props.setBtn(false);
@@ -19,10 +19,10 @@ function SidePanel(props) {
       element.className === "Button" ||
       element.className === "Image"
     ) {
-      setListItem(true);
+      setisClicked(true);
       setTag(element.className);
     } else {
-      setListItem(false);
+      setisClicked(false);
     }
   };
 
@@ -47,7 +47,7 @@ function SidePanel(props) {
       element.id === "Social images"
     ) {
       setNestedList(true);
-      setNestedListTag(element.id);
+      setnestTag(element.id);
     } else {
       setNestedList(false);
     }
@@ -78,7 +78,7 @@ function SidePanel(props) {
         </ul>
 
         <div className="childrenlist">
-          {isListItemClicked && tag === "Text" ? (
+          {isClicked && tag === "Text" ? (
             <ul key={tag} className="nested-data">
               {panelData
                 .filter((el) => el.type === "Text")
@@ -95,7 +95,7 @@ function SidePanel(props) {
                   </li>
                 ))}
             </ul>
-          ) : isListItemClicked && tag === "Button" ? (
+          ) : isClicked && tag === "Button" ? (
             <ul className="nested-data">
               {panelData
                 .filter((el) => el.type === "Button")
@@ -112,7 +112,7 @@ function SidePanel(props) {
                   </li>
                 ))}
             </ul>
-          ) : isListItemClicked && tag === "Image" ? (
+          ) : isClicked && tag === "Image" ? (
             <ul key={tag} className="nested-data">
               {panelData
                 .filter((el) => el.type === "Image")
@@ -133,7 +133,7 @@ function SidePanel(props) {
         </div>
 
         <div className="content-holder">
-          {isNestedListClicked && nestListTag === "Themed texts"
+          {isNestedListClicked && nestTag === "Themed texts"
             ? panelData
                 .filter((el) => el.type === "Text")
                 .map((ele) => ele.children)
@@ -260,7 +260,7 @@ function SidePanel(props) {
                     </div>
                   ))
                 )
-            : isNestedListClicked && nestListTag === "Titles"
+            : isNestedListClicked && nestTag === "Titles"
             ? panelData
                 .filter((el) => el.type === "Text")
                 .map((ele) => ele.children)
@@ -375,7 +375,7 @@ function SidePanel(props) {
                     </div>
                   ))
                 )
-            : isNestedListClicked && nestListTag === "Paragraphs"
+            : isNestedListClicked && nestTag === "Paragraphs"
             ? panelData
                 .filter((el) => el.type === "Text")
                 .map((ele) => ele.children)
@@ -405,7 +405,7 @@ function SidePanel(props) {
                     ))}
                   </div>
                 ))
-            : isNestedListClicked && nestListTag === "Themed Buttons"
+            : isNestedListClicked && nestTag === "Themed Buttons"
             ? panelData
                 .filter((el) => el.type === "Button")
                 .map((ele) => ele.children)
@@ -439,7 +439,7 @@ function SidePanel(props) {
                     ))}
                   </div>
                 ))
-            : isNestedListClicked && nestListTag === "Text & icons Buttons"
+            : isNestedListClicked && nestTag === "Text & icons Buttons"
             ? panelData
                 .filter((el) => el.type === "Button")
                 .map((ele) => ele.children)
@@ -479,7 +479,7 @@ function SidePanel(props) {
                     ))}
                   </div>
                 ))
-            : isNestedListClicked && nestListTag === "icon Buttons"
+            : isNestedListClicked && nestTag === "icon Buttons"
             ? panelData
                 .filter((el) => el.type === "Button")
                 .map((ele) => ele.children)
@@ -508,7 +508,7 @@ function SidePanel(props) {
                     ))}
                   </div>
                 ))
-            : isNestedListClicked && nestListTag === "My Uploads"
+            : isNestedListClicked && nestTag === "My Uploads"
             ? panelData
                 .filter((el) => el.type === "Image")
                 .map((ele) => ele.children)
@@ -538,7 +538,7 @@ function SidePanel(props) {
                     ))}
                   </div>
                 ))
-            : isNestedListClicked && nestListTag === "My Collections"
+            : isNestedListClicked && nestTag === "My Collections"
             ? panelData
                 .filter((el) => el.type === "Image")
                 .map((ele) => ele.children)
@@ -568,7 +568,7 @@ function SidePanel(props) {
                     ))}
                   </div>
                 ))
-            : isNestedListClicked && nestListTag === "Social images"
+            : isNestedListClicked && nestTag === "Social images"
             ? panelData
                 .filter((el) => el.type === "Image")
                 .map((ele) => ele.children)

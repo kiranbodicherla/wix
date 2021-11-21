@@ -5,14 +5,16 @@ import "./Maincomp.css";
 
 function Content(props) {
   function dragMoveListener(event) {
-    var end = event.end;
-    var x = (parseFloat(end.getAttribute("data-x")) || 0) + event.dx;
-    var y = (parseFloat(end.getAttribute("data-y")) || 0) + event.dy;
-    end.style.transform = "translate(" + x + "px, " + y + "px)";
-    end.setAttribute("data-x", x);
-    end.setAttribute("data-y", y);
+    var target = event.target;
+    var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+    var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+    target.style.transform = "translate(" + x + "px, " + y + "px)";
+    target.setAttribute("data-x", x);
+    target.setAttribute("data-y", y);
   }
+
   window.dragMoveListener = dragMoveListener;
+
   interact(".draggable").draggable({
     inertia: true,
 
@@ -30,11 +32,11 @@ function Content(props) {
 
   const drop = (eve) => {
     eve.preventDefault();
-    let Drops = eve.dataTransfer.getData("data");
-    const tag = document.getElementById(Drops);
+    let DropEl = eve.dataTransfer.getData("data");
+    const tag = document.getElementById(DropEl);
     tag.classList.add("draggable");
 
-    eve.end.appendChild(tag);
+    eve.target.appendChild(tag);
   };
 
   const dragOver = (eve) => {
