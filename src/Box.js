@@ -61,7 +61,7 @@ function SidePanel(props) {
       </span>
 
       <div className="panel-data-box">
-        <ul id="parent-list">
+        <ul id="mainlist">
           {panelData ? (
             panelData.map((ele) => (
               <li
@@ -77,7 +77,7 @@ function SidePanel(props) {
           )}
         </ul>
 
-        <div className="nested-list-data-box">
+        <div className="childrenlist">
           {isListItemClicked && tag === "Text" ? (
             <ul key={tag} className="nested-data">
               {panelData

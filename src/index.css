@@ -13,7 +13,7 @@ code {
 }
 
 
-.main-container {
+.cont {
   width: 100%;
   display: flex;
   flex-direction: row;

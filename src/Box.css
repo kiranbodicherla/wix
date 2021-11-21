@@ -52,7 +52,7 @@ width: 100%;
 height: 100%;
 }
 
-#parent-list {
+#mainlist {
 
 float: left;
 max-width: 100px;
@@ -62,7 +62,7 @@ padding: 0px 10px 0px 15px;
 border-right: 1px solid rgba(128, 128, 128, 0.24);
 }
 
-#parent-list li {
+#mainlist li {
 color:black;
 font-weight: bold;
 margin-top: 10px;
@@ -73,14 +73,14 @@ padding: 2px 20px;
 list-style: none;
 margin-bottom: 1px;
 }
-#parent-list li:hover,
+#mainlist li:hover,
 .nested-data li:hover {
 background-color: #4646fc2c;
 border-radius: 20px;
-color: blue;
+color: rgb(3, 3, 24);
 }
 
-.nested-list-data-box {
+.childrenlist {
 display: flex;
 justify-content: flex-start;
 align-items: flex-start;
@@ -93,11 +93,11 @@ border-right: 1px solid rgba(128, 128, 128, 0.24);
 .content-holder {
 
 width: 350px;
-height: 80%;
+background-color: white;
 
 }
 
-.nested-list-data-box ul {
+.childrenlist ul {
 width: 100%;
 height: 100%;
 float: left;

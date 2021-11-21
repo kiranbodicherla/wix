@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <Header download={download} />
-      <div className="main-container">
+      <div className="cont">
         <Leftmenu />
         <Maincomp nodeRef={nodeRef} />
       </div>

@@ -9,7 +9,6 @@
           "stylesArr": [
             {
               "ID": "style-1",
-              "width": "fit-content",
               "h1": "Add Heading 1",
               "draggable": true,
               "fontsize": "30px",
@@ -20,7 +19,6 @@
             },
             {
               "ID": "style-2",
-              "width": "fit-content",
               "h2": "Add Heading 2",
               "fontsize": "25px",
               "draggable": true,
@@ -31,7 +29,6 @@
             },
             {
               "ID": "style-3",
-              "width": "fit-content",
               "h3": "Add Heading 3",
               "fontsize": "20px",
               "draggable": true,
@@ -43,7 +40,6 @@
             },
             {
               "ID": "style-4",
-              "width": "fit-content",
               "h4": "Add Heading 4",
               "fontstyle": "italic",
               "draggable": true,
@@ -55,7 +51,6 @@
             },
             {
               "ID": "style-5",
-              "width": "fit-content",
               "h5": "Add Heading 5",
               "draggable": true,
               "id": "paragragh-2",
@@ -67,7 +62,6 @@
             },
             {
               "ID": "style-6",
-              "width": "fit-content",
               "h6": "Add Heading 6",
               "draggable": true,
               "padding": "0px 10px 0px 10px",
@@ -91,9 +85,9 @@
               "fontweight": 600,
               "padding": "0px 10px 0px 10px",
               "draggable": true,
-              "fontfamily": "Roboto",
+           
               "cursor": "pointer",
-              "fontstyle": "strong",
+              "fontstyle":"italic",
               "color": "light-blue",
               "para": "Helvetica Light is an easy-to-read font, with tall and narrow letters, that works well on almost every site."
             },
@@ -138,7 +132,7 @@
             {
               "ID": "style-9",
               "width": "fit-content",
-              "color": "red",
+              "color": "green",
               "para": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out",
               "fontstyle": "italic",
               "draggable": true,
@@ -150,7 +144,7 @@
             {
               "ID": "style-9",
               "width": "fit-content",
-              "color": "green",
+              "color": "blue",
               "para": "Futura Light is a much loved font inspired by elements of Bauhaus design. Ideal for headlines, banners, logos & more, it will make your words stand out",
               "fontstyle": "italic",
               "draggable": true,
