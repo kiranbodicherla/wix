@@ -44,12 +44,12 @@ function Content(props) {
   };
 
   return (
-    <main
+    <div
       className="main-content"
       onDrop={drop}
       onDragOver={dragOver}
       ref={props.nodeRef}
-    ></main>
+    ></div>
   );
 }
 
